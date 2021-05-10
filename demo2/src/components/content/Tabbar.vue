@@ -1,13 +1,29 @@
 <template>
 	<div class="tabbar">
-		<div class="home" @click="toHome()">
-			<span :style="{ color: tabbarColors[0] }">首页</span>
+		<!-- <div class="home" @click="toHome()" :class="getActive()"> -->
+		<!-- <div class="home" @click="toHome()" v-bind:class="isActive[0]"> -->
+		<div class="home" @click="toHome()" v-bind:class="{ active: homeActive }">
+			<span>首页</span>
 		</div>
-		<div class="personal" @click="toPersonal()">
-			<span :style="{ color: tabbarColors[1] }">个人</span>
+		<div
+			class="personal"
+			@click="toPersonal()"
+			v-bind:class="{ active: personalActive }"
+		>
+			<!-- <div class="personal" @click="toPersonal()" v-bind:class="isActive[1]"> -->
+			<!-- <div class="personal" @click="toPersonal()" :class="getActive()"> -->
+			<!-- <span :style="{ color: tabbarColors[1] }">个人</span> -->
+			<span>个人</span>
 		</div>
-		<div class="users" @click="toUsers()">
-			<span :style="{ color: tabbarColors[2] }">用户</span>
+		<div
+			class="users"
+			@click="toUsers()"
+			v-bind:class="{ active: usersActive }"
+		>
+			<!-- <div class="users" @click="toUsers()" v-bind:class="isActive[2]"> -->
+			<!-- <div class="users" @click="toUsers()" :class="getActive()"> -->
+			<span>其他</span>
+			<!-- <span :style="{ color: tabbarColors[2] }">其他</span> -->
 		</div>
 	</div>
 	<!-- <router-view /> -->
@@ -17,32 +33,49 @@
 export default {
 	name: "Tabbar",
 	data() {
+		// data: {
 		return {
 			tabbarColors: ["red", "#222", "#222"],
-			isActive: [true, false, false],
+			isActive: ["active", "", ""],
+			homeActive: true,
+			personalActive: false,
+			usersActive: false,
+			// is11: isActive,
 		};
 	},
 	methods: {
 		toHome() {
-			this.getColor(0);
-			console.log(this.tabbarColors);
+			this.changeTabbersStyle(0);
+			this.homeActive = true;
+			this.personalActive = false;
+			this.usersActive = false;
+			// console.log(this.tabbarColors);
 			return this.$router.push("/home");
 		},
 		toPersonal() {
-			this.getColor(1);
-			console.log(this.tabbarColors);
+			this.changeTabbersStyle(1);
+			this.homeActive = false;
+			this.personalActive = true;
+			this.usersActive = false;
+			// console.log(this.tabbarColors);
 			return this.$router.push("/personal");
 		},
 		toUsers() {
-			this.getColor(2);
-			console.log(this.tabbarColors);
+			this.homeActive = false;
+			this.personalActive = false;
+			this.usersActive = true;
+			this.changeTabbersStyle(2);
+			// console.log(this.tabbarColors);
 			return this.$router.push("/users");
 		},
-		getColor(index) {
-			console.log(index);
-			console.log(this.tabbarColors[index]);
-			this.tabbarColors = ["#222", "#222", "#222"];
-			this.tabbarColors[index] = "red";
+		changeTabbersStyle(index) {
+			// console.log(index);
+			// console.log(this.tabbarColors[index]);
+			this.isActive.fill("");
+			this.isActive[index] = "active";
+			console.log(this.isActive);
+			// this.tabbarColors = ["#222", "#222", "#222"];
+			// this.tabbarColors[index] = "red";
 		},
 	},
 };
@@ -67,9 +100,25 @@ export default {
 }
 
 .tabbar > div > span {
+	font-size: 0.9rem;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+}
+.tabbar > div:hover {
+	background-color: rgba(230, 230, 250, 0.4);
+}
+
+.tabbar > .active {
+	background-color: rgba(230, 230, 250, 0.7);
+}
+
+.tabbar > .active:hover {
+	background-color: rgba(230, 230, 250, 0.7);
+}
+
+.tabbar > .active > span {
+	color: tomato;
 }
 </style>

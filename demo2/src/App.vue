@@ -9,7 +9,7 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld'
-import Tabbar from "./components/content/Tabbar.vue";
+import Tabbar from "./components/content/Tabbar";
 
 export default {
 	name: "App",
