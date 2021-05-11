@@ -13,7 +13,7 @@
 			<!-- <div class="personal" @click="toPersonal()" v-bind:class="isActive[1]"> -->
 			<!-- <div class="personal" @click="toPersonal()" :class="getActive()"> -->
 			<!-- <span :style="{ color: tabbarColors[1] }">个人</span> -->
-			<span>个人</span>
+			<span>个人中心</span>
 		</div>
 		<div
 			class="users"
@@ -36,47 +36,60 @@ export default {
 		// data: {
 		return {
 			tabbarColors: ["red", "#222", "#222"],
-			isActive: ["active", "", ""],
+			// isActive: ["active", "", ""],
 			homeActive: true,
 			personalActive: false,
 			usersActive: false,
 			// is11: isActive,
+			// userid: this.$route.params.id,
+			userid: 1,
 		};
 	},
 	methods: {
 		toHome() {
-			this.changeTabbersStyle(0);
+			// this.changeTabbersStyle(0);
 			this.homeActive = true;
 			this.personalActive = false;
 			this.usersActive = false;
 			// console.log(this.tabbarColors);
-			return this.$router.push("/home");
+
+			return this.$router.push({
+				path: "/home",
+				query: { id: this.userid },
+			});
 		},
 		toPersonal() {
-			this.changeTabbersStyle(1);
+			// console.log(Event.target);
+			// this.changeTabbersStyle(1);
 			this.homeActive = false;
 			this.personalActive = true;
 			this.usersActive = false;
 			// console.log(this.tabbarColors);
-			return this.$router.push("/personal");
+			return this.$router.push({
+				path: "/personal",
+				query: { id: this.userid },
+			});
 		},
 		toUsers() {
 			this.homeActive = false;
 			this.personalActive = false;
 			this.usersActive = true;
-			this.changeTabbersStyle(2);
+			// this.changeTabbersStyle(2);
 			// console.log(this.tabbarColors);
-			return this.$router.push("/users");
+			return this.$router.push({
+				path: "/users",
+				query: { id: this.userid },
+			});
 		},
-		changeTabbersStyle(index) {
-			// console.log(index);
-			// console.log(this.tabbarColors[index]);
-			this.isActive.fill("");
-			this.isActive[index] = "active";
-			console.log(this.isActive);
-			// this.tabbarColors = ["#222", "#222", "#222"];
-			// this.tabbarColors[index] = "red";
-		},
+		// changeTabbersStyle(index) {
+		// console.log(index);
+		// console.log(this.tabbarColors[index]);
+		// this.isActive.fill("");
+		// this.isActive[index] = "active";
+		// console.log(this.isActive);
+		// this.tabbarColors = ["#222", "#222", "#222"];
+		// this.tabbarColors[index] = "red";
+		// },
 	},
 };
 </script>

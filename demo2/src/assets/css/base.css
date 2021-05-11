@@ -3,4 +3,30 @@
 * {
   margin: 0;
   padding: 0;
+  /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+}
+
+input,
+button {
+  outline: none;
+  border: none;
+  background-color: none;
+}
+
+h1,
+h2,
+h3 {
+  /* font-size: 1rem; */
+  font-weight: 400;
+
+}
+
+.title {
+  height: 3rem;
+  font-weight: 400;
+  line-height: 3rem;
+  font-size: 1.1rem;
+  color: rgb(11, 11, 167);
+  text-align: center;
+  letter-spacing: 2px;
 }

@@ -2,20 +2,43 @@
 	<div id="app">
 		<!-- <img src="./assets/logo.png"> -->
 		<!-- <HelloWorld/> -->
+		<Header @faceClick="faceClick()" />
 		<router-view />
-		<Tabbar />
+		<Tabbar ref="tabbar" />
 	</div>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld'
 import Tabbar from "./components/content/Tabbar";
-
+import Header from "./components/content/Header";
 export default {
 	name: "App",
 	components: {
 		Tabbar,
+		Header,
 		// HelloWorld
+	},
+	methods: {
+		faceClick() {
+			// console.log(this.$refs.tabbar);
+			this.$refs.tabbar.toPersonal();
+			// top();
+			// console.log(this.$refs.tabbar.toPersonal);
+			// return this.$refs.tabbar.toPersonal;
+			// this.$refs.tabbar.toPersonal;
+			// return
+		},
+		tabbar() {
+			console.log(this.$refs.tabbar);
+			return this.$refs.tabbar.toPersonal();
+		},
+		toP() {
+			console.log(this.$refs);
+			// console.log(this.$refs.header);
+
+			this.$refs.header.toPersonal();
+		},
 	},
 };
 </script>

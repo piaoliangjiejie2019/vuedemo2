@@ -9,6 +9,7 @@ module.exports = {
         'common': '@/common',
         'components': '@/components',
         'network': '@/network',
+        'static': 'static'
         //router  store 可以不用配置 一般不用到 一般直接使用 $route $store
       }
     }
