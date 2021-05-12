@@ -25,7 +25,7 @@ export default {
 			// userface: this.$store.state.stu[userid].face,
 			user: this.$store.state.stu[this.$route.query.id - 1],
 			username: this.$store.state.stu[this.$route.query.id - 1].name,
-			userfacesrc: this.$store.state.stu[this.$route.query.id - 1].face,
+			userfacesrc: this.$store.getters.getFace(this.$route.query.id),
 		};
 	},
 	methods: {
@@ -123,6 +123,7 @@ export default {
 .header .publish button span {
 	letter-spacing: 0.1rem;
 	color: #444;
+	/* background-color: ; */
 }
 
 .header .userface {

@@ -3,6 +3,8 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: Gabriola;
+  color: #333;
   /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
 }
 
@@ -19,6 +21,14 @@ h3 {
   /* font-size: 1rem; */
   font-weight: 400;
 
+}
+
+li {
+  list-style-type: none;
+}
+
+div {
+  background-color: #fbfbfb;
 }
 
 .title {
