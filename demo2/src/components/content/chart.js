@@ -1,4 +1,8 @@
-export function chart(bgimgElement, backBtn, nextBtn, chartAll) {
+window.onload(){
+  // chart('.')
+}
+
+function chart(bgimgElement, backBtn, nextBtn, chartAll) {
   let rcindex = 0;
   let rcleftindex = 1;
   let rcrightindex = 2;
@@ -99,7 +103,7 @@ export function chart(bgimgElement, backBtn, nextBtn, chartAll) {
 }
 
 //下一张图片的轮播 在刷新页面的时候会用到
-export function rcnextp(bgimgElement, rcindex, rcleftindex, rcrightindex) {
+function rcnextp(bgimgElement, rcindex, rcleftindex, rcrightindex) {
   $(bgimgElement).eq(rcindex).animate({
     'left': '0',
     'transition': 'left 3s ease-in',
