@@ -14,6 +14,10 @@
 			<div class="letters" @click="getUserid()">
 				<ul>
 					<li>
+						<span>userID:</span>
+						<span class="userID">{{ this.$route.query.id }}</span>
+					</li>
+					<li>
 						<span>username:</span>
 						<span class="nameValue">
 							{{ $store.getters.getName(this.$route.query.id) }}
@@ -78,9 +82,12 @@ export default {
 			this.issubmit = false;
 			const params = ["nameValue", "sexValue", "birthValue", "signatureValue"];
 			const values = getChangeValues(params);
-			console.log(values);
-			this.$store.state.userID = this.$route.query.id;
+			// console.log(values);
+			values.push(this.$route.query.id);
+			// console.log(values);
+			// this.$store.state.userID = this.$route.query.id;
 			this.$store.commit("changeStu", values);
+			toSubmit(params, values);
 		},
 		getUserid() {
 			this.$store.getters.getUserid(this.$route.query.id);
@@ -151,6 +158,8 @@ export default {
 	left: 1.6em;
 	height: 90%;
 	border-radius: 2em/100em;
+	top: 50%;
+	transform: translate(0, -50%);
 }
 /* .information > div:nth-of-type(1) {
 	

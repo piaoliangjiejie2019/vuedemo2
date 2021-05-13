@@ -27,3 +27,15 @@ export function getChangeValues(params) {
   // console.log(values);
   return values;
 }
+
+export function toSubmit(classnames, values) {
+  console.log(values);
+  for (let i = 0; i < classnames.length; i++) {
+    const element = document.querySelector('.' + classnames[i]);
+    element.removeChild(document.querySelector('.' + classnames[i]).querySelector('input'))
+    // console.log(element);
+    element.innerText = values[i];
+    // console.log(element);
+  }
+
+}

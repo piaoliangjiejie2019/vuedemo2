@@ -19,13 +19,14 @@ const store = new Vuex.Store({
   },
   mutations: {
     changeStu(state, params) {
-      console.log(params);
-      console.log(this.userID);
+      // console.log(params);
+      this.userID = params[params.length - 1];
+      // console.log(this.userID);
       state.stu.filter((s) => s.id == this.userID)[0].name = params[0];
       state.stu.filter((s) => s.id == this.userID)[0].sex = params[1];
       state.stu.filter((s) => s.id == this.userID)[0].birth = params[2];
       state.stu.filter((s) => s.id == this.userID)[0].signature = params[3];
-      console.log(params);
+      // console.log(params);
       // console.log(state.stu.filter((s) => s.id == id)[0].name);
     }
   },
