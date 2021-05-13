@@ -39,6 +39,8 @@ export default {
 
 <style>
 #app {
+	overflow: hidden;
+	min-width: 600px;
 	width: 100%;
 	position: relative;
 	box-sizing: border-box;

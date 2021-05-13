@@ -14,7 +14,7 @@ const store = new Vuex.Store({
       { id: 1, name: 'Arles', sex: '♀', birth: "3.12", face: 'static/img/users/stu1.jpg', signature: "日出东方落于西" },
       { id: 2, name: '粉磨心草昧', sex: '♂', birth: "7.30", face: 'static/img/users/stu2.jpg', signature: "外向是生活所需，孤独是自我享受" },
       { id: 3, name: '卖女孩的小火柴', sex: '♀', birth: "9.20", face: 'static/img/users/stu3.jpg', signature: "自律且努力 别让生活太安逸" },
-      { id: 4, name: '秋凉', sex: '♂', birth: "3.7", face: 'static/img/users/stu4.jpg', signature: "仙女的眼应该满怀清明大意和温柔阳光" },
+      { id: 4, name: '文狗子', sex: '♀', birth: "3.7", face: 'static/img/users/stu4.jpg', signature: "仙女的眼应该满怀清明大意和温柔阳光" },
     ]
   },
   mutations: {

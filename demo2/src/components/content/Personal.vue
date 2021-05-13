@@ -160,30 +160,6 @@ export default {
 <style>
 /* @import url("../../assets/css/base.css"); */
 
-.button {
-	width: 100%;
-	height: 3em;
-	position: relative;
-}
-
-button {
-	background-color: rgb(230, 230, 250);
-	width: 4em;
-	height: 1.8em;
-	line-height: 2em;
-	/* padding: 0.5% 1em; */
-	font-size: 1.2em;
-	border-radius: 12px;
-	/* border: 1px solid #555; */
-	position: absolute;
-	right: 0;
-	transform: translateX(-60%);
-}
-
-button:hover {
-	background-color: rgba(230, 230, 250, 0.68);
-}
-
 .information {
 	display: flex;
 	padding: 2% 10%;
@@ -254,15 +230,6 @@ button:hover {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-}
-input {
-	height: 2.4em;
-	font-size: 0.8em;
-	padding: 0 10px;
-	line-height: 2.4em;
-	color: #777;
-	border: #111 1px solid;
-	border-radius: 8px;
 }
 
 .switch > button {
