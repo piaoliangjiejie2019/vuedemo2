@@ -2,8 +2,8 @@
 	<div id="app">
 		<!-- <img src="./assets/logo.png"> -->
 		<!-- <HelloWorld/> -->
-		<Header @faceClick="faceClick()" />
-		<router-view />
+		<Header @faceClick="faceClick()" ref="header" />
+		<router-view @toChangeTabberUserid="toChangeTabberUserid()" />
 		<Tabbar ref="tabbar" />
 	</div>
 </template>
@@ -29,15 +29,9 @@ export default {
 			// this.$refs.tabbar.toPersonal;
 			// return
 		},
-		tabbar() {
-			console.log(this.$refs.tabbar);
-			return this.$refs.tabbar.toPersonal();
-		},
-		toP() {
-			console.log(this.$refs);
-			// console.log(this.$refs.header);
-
-			this.$refs.header.toPersonal();
+		toChangeTabberUserid() {
+			this.$refs.tabbar.toChangeTabberUserid();
+			this.$refs.header.headerchangeID();
 		},
 	},
 };

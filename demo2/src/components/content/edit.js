@@ -39,3 +39,12 @@ export function toSubmit(classnames, values) {
   }
 
 }
+
+export function toConfirmID(stuLen, classname) {
+  const changeID = document.querySelector('.' + classname).value;
+  if (stuLen < changeID) {
+    return false;
+  } else {
+    return changeID;
+  }
+}

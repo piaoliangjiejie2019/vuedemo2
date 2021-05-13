@@ -42,7 +42,7 @@ export default {
 			usersActive: false,
 			// is11: isActive,
 			// userid: this.$route.params.id,
-			userid: 3,
+			userid: 1,
 		};
 	},
 	methods: {
@@ -80,6 +80,14 @@ export default {
 				path: "/users",
 				query: { id: this.userid },
 			});
+		},
+		toChangeTabberUserid() {
+			// console.log(changeID);
+			// console.log(5);
+			// console.log(this.$route.query.id);
+			// console.log(this.userid);
+			this.userid = this.$route.query.id;
+			// console.log(this.userid);
 		},
 		// changeTabbersStyle(index) {
 		// console.log(index);

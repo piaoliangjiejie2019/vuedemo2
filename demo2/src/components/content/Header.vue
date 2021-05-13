@@ -21,10 +21,10 @@ export default {
 
 	data() {
 		return {
-			userid: this.$route.query.id,
+			// userid: this.$route.query.id,
 			// userface: this.$store.state.stu[userid].face,
-			user: this.$store.state.stu[this.$route.query.id - 1],
-			username: this.$store.state.stu[this.$route.query.id - 1].name,
+			// user: this.$store.state.stu[this.$route.query.id - 1],
+			username: this.$store.getters.getName(this.$route.query.id),
 			userfacesrc: this.$store.getters.getFace(this.$route.query.id),
 		};
 	},
@@ -36,6 +36,10 @@ export default {
 			// console.log(1);
 			// console.log(this.triggerChildMethod());
 			// this.triggerChildMethod();
+		},
+		headerchangeID() {
+			this.username = this.$store.getters.getName(this.$route.query.id);
+			this.userfacesrc = this.$store.getters.getFace(this.$route.query.id);
 		},
 	},
 	computed: {

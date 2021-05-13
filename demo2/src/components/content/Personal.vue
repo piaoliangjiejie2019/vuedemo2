@@ -51,18 +51,36 @@
 				</ul>
 			</div>
 		</div>
+
+		<div class="button switch">
+			<button v-if="isswitch" title="切换用户" @click="toSwitch()">
+				switch
+			</button>
+			<button v-if="isconfirm" @click="toConfirm()" title="确定">
+				confirm
+			</button>
+			<input
+				:class="{ show: isconfirm }"
+				class="putinID"
+				type="text"
+				placeholder="请输入用户id"
+			/>
+		</div>
 	</div>
 </template>
 
 <script>
-import { getChangeValues, toEdit, toSubmit } from "./edit";
+import { getChangeValues, toConfirmID, toEdit, toSubmit } from "./edit";
 
 export default {
 	name: "Personal",
+	props: ["tabbar", "header"],
 	data() {
 		return {
 			isedit: true,
 			issubmit: false,
+			isswitch: true,
+			isconfirm: false,
 			// userid: this.$route.query.id,
 			// username: this.$store.getters.getName(this.$store.state.userid),
 			// sex: this.$store.getters.getSex(this.$store.state.userid),
@@ -88,6 +106,37 @@ export default {
 			// this.$store.state.userID = this.$route.query.id;
 			this.$store.commit("changeStu", values);
 			toSubmit(params, values);
+		},
+		toSwitch() {
+			this.isswitch = false;
+			this.isconfirm = true;
+			// console.log(this.$store.state.stu.length);
+		},
+		toConfirm() {
+			const res = toConfirmID(this.$store.state.stu.length, "putinID");
+			if (res) {
+				// this.$route.query.id = toConfirmID(
+				// 	this.$store.state.stu.length,
+				// 	"putinID"
+				// );
+				this.isswitch = true;
+				this.isconfirm = false;
+				// document.querySelector(".putinID").value = "";
+
+				this.$router.push({
+					path: "/personal",
+					query: { id: res },
+				});
+				this.toChangeTabberUserid();
+				document.querySelector(".putinID").value = "";
+			} else {
+				alert("没有该id的用户");
+			}
+		},
+		toChangeTabberUserid() {
+			// console.log(changeID);
+			this.$emit("toChangeTabberUserid");
+			this.$emit("headerchangeID");
 		},
 		getUserid() {
 			this.$store.getters.getUserid(this.$route.query.id);
@@ -117,7 +166,7 @@ export default {
 	position: relative;
 }
 
-.edit {
+button {
 	background-color: rgb(230, 230, 250);
 	width: 4em;
 	height: 1.8em;
@@ -131,13 +180,13 @@ export default {
 	transform: translateX(-60%);
 }
 
-.edit:hover {
+button:hover {
 	background-color: rgba(230, 230, 250, 0.68);
 }
 
 .information {
 	display: flex;
-	padding: 5% 10%;
+	padding: 2% 10%;
 	/* box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.68); */
 	/* background-color: #fff; */
 	border: rgb(156, 156, 255) dashed 1px;
@@ -206,7 +255,7 @@ export default {
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
-.letters ul > li > span:nth-of-type(2) input {
+input {
 	height: 2.4em;
 	font-size: 0.8em;
 	padding: 0 10px;
@@ -215,6 +264,24 @@ export default {
 	border: #111 1px solid;
 	border-radius: 8px;
 }
+
+.switch > button {
+	bottom: 0;
+}
+
+.switch input {
+	width: 6rem;
+	position: absolute;
+	right: -50%;
+	bottom: -100%;
+	transform: translate(-40%, 0);
+	transition: all 0.5s;
+}
+
+.switch input.show {
+	right: 0;
+}
+
 /* .title {
 	height: 3rem;
 	font-weight: 400;
