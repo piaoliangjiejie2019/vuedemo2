@@ -48,6 +48,10 @@ export default {
 	height: 722px;
 	border: 1px solid black;
 }
+#app > div:nth-of-type(2) {
+	overflow: scroll;
+	overflow-x: hidden;
+}
 
 /* #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

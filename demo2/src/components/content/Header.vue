@@ -118,6 +118,7 @@ export default {
 	width: 12rem;
 	height: 2.4rem;
 	border-radius: 3rem;
+	box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.08);
 }
 
 .header .publish button:hover {

@@ -15,6 +15,15 @@ const store = new Vuex.Store({
       { id: 2, name: '粉磨心草昧', sex: '♂', birth: "7.30", face: 'static/img/users/stu2.jpg', signature: "外向是生活所需，孤独是自我享受" },
       { id: 3, name: '卖女孩的小火柴', sex: '♀', birth: "9.20", face: 'static/img/users/stu3.jpg', signature: "自律且努力 别让生活太安逸" },
       { id: 4, name: '文狗子', sex: '♀', birth: "3.7", face: 'static/img/users/stu4.jpg', signature: "仙女的眼应该满怀清明大意和温柔阳光" },
+    ],
+    centences: [
+      "心累的时候，换个角度看世界，压抑的时候换个环境深呼吸",
+      "温山软水，不及你眉眼半分温柔",
+      "能永远明朗坦荡钟情豁达，有得有失有坚持，能笑能哭能尽欢",
+      "站在自己热爱的世界里，闪闪发光",
+      "把自己活成一束光，自信坦荡，光芒万丈！",
+      "夏天有迟暮的霞光，正如晚来的你皆是笑意",
+      "从来都觉得：践踏他人成功、诋毁他人，根本就不是什么好品质",
     ]
   },
   mutations: {
