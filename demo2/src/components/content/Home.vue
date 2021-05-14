@@ -1,18 +1,40 @@
 <template>
 	<div class="home">
 		<p class="title">HOME</p>
-		<div class="chart">
-			<ul>
-				<li v-show="showimg[0]"></li>
-				<li v-show="showimg[1]"></li>
-				<li v-show="showimg[0]"></li>
+		<div class="chart" @mouseover="overChart()" @mouseout="outChart()">
+			<ul class="bg">
+				<li :class="{ bgshow: showimg[0] }"></li>
+				<li :class="{ bgshow: showimg[1] }"></li>
+				<li :class="{ bgshow: showimg[2] }"></li>
+				<li :class="{ bgshow: showimg[3] }"></li>
+				<!-- <li :class="{ bgshow: showimg[4] }"></li> -->
 			</ul>
-			<button class="back" @mouseover="overBack()" @mouseout="outBack()">
+			<div class="point">
+				<ul class="">
+					<li :class="{ per: showimg[0] }" @click="changeimg(0)">.</li>
+					<li :class="{ per: showimg[1] }" @click="changeimg(1)">.</li>
+					<li :class="{ per: showimg[2] }" @click="changeimg(2)">.</li>
+					<li :class="{ per: showimg[3] }" @click="changeimg(3)">.</li>
+					<!-- <li :class="{ per: showimg[4] }" @click="changeimg(4)">.</li> -->
+				</ul>
+			</div>
+
+			<button
+				class="back"
+				@mouseover="overBack()"
+				@mouseout="outBack()"
+				@click="back()"
+			>
 				<img :src="backSrc" alt="" />
 
 				<!-- <i class="iconfont icon-qianjin"></i> -->
 			</button>
-			<button class="next" @mouseover="overNext()" @mouseout="outNext()">
+			<button
+				class="next"
+				@mouseover="overNext()"
+				@mouseout="outNext()"
+				@click="next()"
+			>
 				<!-- <i class="iconfont icon-houtui">&#xe693;</i> -->
 				<img :src="nextSrc" alt="" />
 			</button>
@@ -27,10 +49,21 @@ export default {
 		return {
 			nextSrc: "static/img/home/next_cdcdcd.png",
 			backSrc: "static/img/home/back_cdcdcd.png",
-			showimg: [true, false, false],
+			showimg: [true, false, false, false],
+			index: 0,
 		};
 	},
 	methods: {
+		overChart() {
+			// console.log(window.timer);
+			clearInterval(window.timer);
+		},
+		outChart() {
+			const that = this;
+			window.timer = setInterval(function () {
+				that.next();
+			}, 3000);
+		},
 		overBack() {
 			this.backSrc = "static/img/home/back.png";
 		},
@@ -43,6 +76,34 @@ export default {
 		outNext() {
 			this.nextSrc = "static/img/home/next_cdcdcd.png";
 		},
+		back() {
+			if (this.index == 0) {
+				this.index = this.showimg.length - 1;
+			} else {
+				this.index -= 1;
+			}
+			this.showimg = [false, false, false, false];
+			this.showimg[this.index] = true;
+		},
+		next() {
+			if (this.index == this.showimg.length - 1) {
+				this.index = 0;
+			} else {
+				this.index += 1;
+			}
+			this.showimg = [false, false, false, false];
+			this.showimg[this.index] = true;
+		},
+		changeimg(index) {
+			this.showimg = [false, false, false, false];
+			this.showimg[index] = true;
+		},
+	},
+	mounted() {
+		const that = this;
+		window.timer = setInterval(function () {
+			that.next();
+		}, 3000);
 	},
 };
 </script>
@@ -63,43 +124,87 @@ export default {
 }
 
 .home .chart > .back {
-	left: 6%;
+	left: 22%;
 }
 
 .home .chart > .next {
-	right: 6%;
+	right: 22%;
 }
 .home .chart button img {
 	width: 2em;
 }
 
-.home .chart ul {
+.home .chart ul.bg {
 	position: relative;
-	width: 300%;
+	width: 100%;
 	display: flex;
 	height: 18em;
 	/* background-color: rgba(60, 60, 60, 0.5); */
 }
 
-.home .chart li {
+.home .chart ul.bg li {
 	width: 100%;
 	height: 18em;
 	/* background-color: rgba(60, 60, 60, 0.5); */
 	text-align: center;
 	display: inline-block;
 	position: absolute;
-
-	background: url("../../assets/img/home/chart11.jpg") no-repeat center;
-	background-size: 70%;
+	opacity: 0;
+	background: url("../../assets/img/home/chart1.jpg") no-repeat center;
+	background-size: 45%;
+	transition: all 1s;
 }
 
-.home .chart li:nth-of-type(2) {
-	background-image: url("../../assets/img/home/chart12.jpg");
-	background-size: 70%;
+.home .chart ul.bg li.bgshow {
+	opacity: 1;
 }
 
-.home .chart li:nth-of-type(3) {
-	background-image: url("../../assets/img/home/chart15.jpg");
-	background-size: 70%;
+.home .chart ul.bg li:nth-of-type(2) {
+	background-image: url("../../assets/img/home/chart17.jpg");
+	/* background-size: 70%; */
+}
+
+.home .chart ul.bg li:nth-of-type(3) {
+	background-image: url("../../assets/img/home/chart3.jpg");
+	/* background-size: 70%; */
+}
+.home .chart ul.bg li:nth-of-type(4) {
+	background-image: url("../../assets/img/home/chart18.jpg");
+	/* background-size: 70%; */
+}
+.home .chart ul.bg li:nth-of-type(5) {
+	background-image: url("../../assets/img/home/chart2.jpg");
+	/* background-size: 70%; */
+}
+.home .chart .point {
+	position: absolute;
+	height: 1em;
+	width: 100%;
+	/* text-align: center; */
+	/* background-color: rgb(230, 230, 250); */
+}
+
+.home .chart .point ul {
+	height: 1em;
+	position: relative;
+	width: 2.8em;
+	left: 50%;
+	transform: translateX(-50%);
+	/* background-color: rgb(230, 230, 250); */
+}
+.home .chart .point ul > li {
+	position: relative;
+	float: left;
+	height: 1em;
+	line-height: 1em;
+	font-size: 4em;
+	top: -201%;
+	margin-right: 0px;
+	color: #cdcdcd;
+	transition: all 0.3s;
+	cursor: pointer;
+}
+.home .chart .point ul > li.per {
+	color: darkorchid;
 }
 </style>

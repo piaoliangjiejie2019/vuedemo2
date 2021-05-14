@@ -1,6 +1,12 @@
-window.onload(){
-  // chart('.')
-}
+// export function tonext() {
+//   if (index == 2) {
+//     index = 0;
+//   } else {
+//     index += 1;
+//   }
+//   showimg = [false, false, false];
+//   showimg[this.index] = true;
+// }
 
 function chart(bgimgElement, backBtn, nextBtn, chartAll) {
   let rcindex = 0;

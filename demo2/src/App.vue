@@ -44,7 +44,8 @@ export default {
 	width: 100%;
 	position: relative;
 	box-sizing: border-box;
-	height: 650px;
+	min-height: 650px;
+	height: 722px;
 	border: 1px solid black;
 }
 
