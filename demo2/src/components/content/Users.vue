@@ -3,7 +3,11 @@
 		<p class="title">OTHER USERS</p>
 
 		<ul>
-			<li class="userItem" v-for="(item, index) in this.$store.state.stu">
+			<li
+				class="userItem"
+				:key="index"
+				v-for="(item, index) in this.$store.state.stu"
+			>
 				<img class="face" :src="item.face" alt="" />
 				<p class="message">
 					<span>id:{{ item.id }}</span>
@@ -19,14 +23,26 @@
 			<button v-if="isAdd" class="add" @click="toAdd()">add</button>
 			<button v-if="isSubmit" class="submit" @click="toSubmit()">submit</button>
 			<form class="addValues" :class="{ show: isSubmit }" action="">
-				<input class="inputName" type="text" placeholder="input newname" />
 				<input
+					ref="inputName"
+					class="inputName"
+					type="text"
+					placeholder="input newname"
+				/>
+				<input
+					ref="inputSex"
 					class="inputSex"
 					type="text"
 					placeholder="input sex choose ♂ / ♀"
 				/>
-				<input class="inputBirth" type="text" placeholder="input newbirth" />
 				<input
+					ref="inputBirth"
+					class="inputBirth"
+					type="text"
+					placeholder="input newbirth"
+				/>
+				<input
+					ref="inputSignature"
 					class="inputSignature"
 					type="text"
 					placeholder="input newsignature"
@@ -53,6 +69,14 @@ export default {
 		toSubmit() {
 			this.isAdd = true;
 			this.isSubmit = false;
+			const params = {
+				name: this.$refs.inputName.value,
+				sex: this.$refs.inputSex.value,
+				birth: this.$refs.inputBirth.value,
+				signature: this.$refs.inputSignature.value,
+			};
+			this.$store.commit("addStu", params);
+			// console.log(params);
 		},
 	},
 };
@@ -147,5 +171,7 @@ export default {
 	color: #444;
 	font-size: 15px;
 	width: 12em;
+	/* line-height: 1.5em; */
+	padding: 4px 10px 0 10px;
 }
 </style>

@@ -37,8 +37,14 @@ const store = new Vuex.Store({
       state.stu.filter((s) => s.id == this.userID)[0].signature = params[3];
       // console.log(params);
       // console.log(state.stu.filter((s) => s.id == id)[0].name);
-    }, addCentences(state, value) {
+    },
+    addCentences(state, value) {
       state.centences.push(value)
+    },
+    addStu(state, params) {
+      const values = { id: state.stu.length + 1, name: params.name, sex: params.sex, birth: params.birth, face: "static/img/users/default.jpg", signature: params.signature };
+      console.log(values);
+      state.stu.push(values);
     }
   },
   getters: {
