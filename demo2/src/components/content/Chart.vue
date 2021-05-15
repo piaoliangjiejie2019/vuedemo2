@@ -1,18 +1,25 @@
 <template>
 	<div class="chart" @mouseover="overChart()" @mouseout="outChart()">
 		<ul class="bg">
-			<li :class="{ bgshow: showimg[0] }"></li>
-			<li :class="{ bgshow: showimg[1] }"></li>
-			<li :class="{ bgshow: showimg[2] }"></li>
-			<li :class="{ bgshow: showimg[3] }"></li>
-			<!-- <li :class="{ bgshow: showimg[4] }"></li> -->
+			<li
+				v-for="(item, index) in showimg"
+				:key="index"
+				:class="{ bgshow: showimg[index] }"
+			></li>
 		</ul>
 		<div class="point">
 			<ul class="">
-				<li :class="{ per: showimg[0] }" @click="changeimg(0)">.</li>
-				<li :class="{ per: showimg[1] }" @click="changeimg(1)">.</li>
+				<li
+					v-for="(item, index) in showimg"
+					:key="index"
+					:class="{ per: showimg[index] }"
+					@click="changeimg(index)"
+				>
+					.
+				</li>
+				<!-- <li :class="{ per: showimg[1] }" @click="changeimg(1)">.</li>
 				<li :class="{ per: showimg[2] }" @click="changeimg(2)">.</li>
-				<li :class="{ per: showimg[3] }" @click="changeimg(3)">.</li>
+				<li :class="{ per: showimg[3] }" @click="changeimg(3)">.</li> -->
 				<!-- <li :class="{ per: showimg[4] }" @click="changeimg(4)">.</li> -->
 			</ul>
 		</div>

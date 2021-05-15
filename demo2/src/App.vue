@@ -49,8 +49,10 @@ export default {
 	border: 1px solid black;
 }
 #app > div:nth-of-type(2) {
+	min-height: 78%;
 	overflow: scroll;
 	overflow-x: hidden;
+	/* overflow-y: hidden; */
 }
 
 /* #app {

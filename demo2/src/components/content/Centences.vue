@@ -8,6 +8,7 @@
 					class="CenItem"
 					v-for="(item, index) in $store.state.centences"
 					:title="item"
+					:key="index"
 				>
 					{{ index }} . {{ item }}
 				</li>
