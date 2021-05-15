@@ -3,8 +3,10 @@
 		<div class="demoLogo">
 			<img src="../../assets/img/pianfu.png" alt="" title="beauty-lsy'demo" />
 		</div>
+
 		<div class="publish">
-			<button><span>publish</span></button>
+			<button @click="toPublish()"><span>publish</span></button>
+			<Publish ref="publish" />
 		</div>
 		<div class="userface">
 			<!-- <img src="../../assets/img/users/stu1.jpg" alt="" :title="username" /> -->
@@ -14,11 +16,15 @@
 </template>
 
 <script>
+import Publish from "./Publish.vue";
+
 export default {
 	name: "Header",
 	// props: ["triggerChildMethod"],
 	props: ["tabbar"],
-
+	components: {
+		Publish,
+	},
 	data() {
 		return {
 			// userid: this.$route.query.id,
@@ -26,6 +32,7 @@ export default {
 			// user: this.$store.state.stu[this.$route.query.id - 1],
 			username: this.$store.getters.getName(this.$route.query.id),
 			userfacesrc: this.$store.getters.getFace(this.$route.query.id),
+			isPublish: false,
 		};
 	},
 	methods: {
@@ -40,6 +47,10 @@ export default {
 		headerchangeID() {
 			this.username = this.$store.getters.getName(this.$route.query.id);
 			this.userfacesrc = this.$store.getters.getFace(this.$route.query.id);
+		},
+		toPublish() {
+			// console.log(1);
+			this.$refs.publish.toPublish();
 		},
 	},
 	computed: {
@@ -119,6 +130,18 @@ export default {
 	height: 2.4rem;
 	border-radius: 3rem;
 	box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.08);
+}
+
+.header .publish .publishBox {
+	position: absolute;
+	/* width: 23em;
+	height: 10em; */
+	z-index: 999;
+	/* opacity: 0.8; */
+	/* border: 1px saddlebrown solid; */
+	/* background-color: rgb(230, 230, 250); */
+
+	/* background-color: rgba(0, 0, 0, 0.8); */
 }
 
 .header .publish button:hover {

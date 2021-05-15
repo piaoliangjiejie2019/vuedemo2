@@ -49,13 +49,21 @@ export default {
 	/* color: #555; */
 }
 .s .centences ul {
-	width: 100%;
+	width: 92%;
 	display: flex;
 	flex-wrap: wrap;
+	/* margin: 0 6%; */
+	margin: 0 auto;
+	border: 2px dashed rgb(188, 143, 233);
+	box-sizing: border-box;
+	padding: 1% 1%;
+	border-radius: 16px;
 }
 .s .centences .CenItem {
 	text-align: center;
-	border: 1px solid rgb(130, 67, 192);
+	box-shadow: 0 0 5px 1px rgba(192, 192, 252, 0.68);
+	/* border: 1px solid rgb(130, 67, 192); */
+	color: #444;
 	/* padding: 5px; */
 	height: 1.7em;
 	white-space: nowrap;
@@ -66,8 +74,8 @@ export default {
 	/* width: 25em; */
 	max-width: 50%;
 	padding: 10px 20px 6px;
-	margin: 5px;
+	margin: 8px;
 	text-align: left;
-	border-radius: 8px;
+	border-radius: 14px;
 }
 </style>

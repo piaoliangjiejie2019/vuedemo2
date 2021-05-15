@@ -175,16 +175,18 @@ export default {
 	text-align: center;
 	/* background-color: #fff; */
 }
-.line {
+.Personal b.line {
 	display: inline-block;
+	width: 3px;
 	border-right: 2px solid rgb(161, 115, 207);
 	position: relative;
 	/* padding-right: 2%; */
 	left: 1.6em;
 	height: 90%;
-	border-radius: 2em/100em;
+	border-radius: 3em/100em;
 	top: 50%;
 	transform: translate(0, -50%);
+	width: 2px;
 }
 /* .information > div:nth-of-type(1) {
 	
