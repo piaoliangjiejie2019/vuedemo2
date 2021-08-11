@@ -1,6 +1,21 @@
-# demo2
+# vuedemo2
 
 > A Vue.js project
+
+学习完 vue 后 为了对vue的一些操作更加熟悉 而做的demo 里面有涉及到的操作有 ：
+
++ 基础语法 
++ 生命周期
++ 组件
++ 组件通信
++ 路由
++ vuex
+
+
+
+项目的设计图 如下：
+
+<img src="vuedemo.png">
 
 ## Build Setup
 
