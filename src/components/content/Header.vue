@@ -39,6 +39,7 @@ export default {
 		toPersonal() {
 			// this.$parent.faceClick;
 			// console.log(this.$parent.faceClick);
+			debugger;
 			this.$emit("faceClick");
 			// console.log(1);
 			// console.log(this.triggerChildMethod());
@@ -69,12 +70,19 @@ export default {
 			// 		s.id === this.userid;
 			// 	})
 			// );
+			// debugger;
 			const face = this.$store.state.stu[this.$route.query.id - 1].face;
 			// console.log(this.$store.state.stu[this.$route.query.id - 1].face);
 			console.log(face);
 			return face;
 			// return stu;
 		},
+	},
+	created() {
+		debugger;
+		let imgList = [];
+		imgList = [1, 2, 3];
+		console.log(this);
 	},
 };
 </script>
