@@ -1,8 +1,8 @@
-# vuedemo2
+# 文案星球 cwenjoy 雏形
 
 > A Vue.js project
 
-学习完 vue 后 为了对vue的一些操作更加熟悉 而做的demo 里面有涉及到的操作有 ：
+学习完 vue 后 为了对vue的一些操作更加熟悉 而做的 demo ，顺便为文案星球做一个基本的风格，里面有涉及到的操作有 ：
 
 + 基础语法 
 + 生命周期
@@ -15,7 +15,7 @@
 
 项目的设计图 如下：
 
-<img src="vuedemo.png">
+<img src="https://s3.bmp.ovh/imgs/2021/11/275ee8cfa25d057d.png">
 
 ## Build Setup
 
